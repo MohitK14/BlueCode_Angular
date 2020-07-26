@@ -1,0 +1,38 @@
+<!-- <p>forgot-pwd works!</p> -->
+
+<div class="title">Reset password</div>
+<div class="loginBox">
+    <form name="forgotForm" [formGroup]="forgotForm" >
+    <div class="credBoxes">
+
+    <div class="loginCredentials">
+    <input type="text" placeholder="username@xyz.com" formControlName="email">
+
+        <div  class="rp-error" *ngIf="isFormSubmitted && forgotForm.controls.email.errors?.required">
+            Please enter email.
+        </div>
+            
+        <div class="rp-error" *ngIf="forgotForm.controls.email.errors && forgotForm.get('email').touched">
+        Please enter a valid email.
+        </div>
+    </div>
+
+    
+
+    <div class="loginCredentials">
+        <input type="password" formControlName="password" placeholder="password">
+        <div  class="rp-error" *ngIf="isFormSubmitted && forgotForm.controls.password.errors?.required">
+            Please enter valid password.
+        </div>
+    </div>
+    
+    <!-- <span id="errMsg">Credentials are required</span> -->
+    <div *ngIf="successMsg"> <span class="msg">Success!!!</span> <span (click)="login()" class="loginBtn">login</span></div>
+    <div class="rp-error" *ngIf="errorFlag">{{errorMsg}}</div>
+    <div class="submitBtn">
+        <button [disabled]="successMsg" [ngClass]="{'notAllowed': successMsg}" (click)="onSubmit(forgotForm)" class="login btn" type="button" value="LOGIN" id="btn">SUBMIT</button>
+        <!-- <span class="signUp">or <a (click)="signUp()">signUp</a></span> -->
+    </div>
+    </div>
+</form>
+</div>

@@ -1,0 +1,36 @@
+
+<div class="title">SignUp</div>
+<div class="loginBox">
+    <form name="signUpForm" [formGroup]="signUpForm" >
+    <div class="credBoxes">
+
+    <div class="loginCredentials">
+    <input type="text" placeholder="username@xyz.com" formControlName="email">
+
+        <div  class="rp-error" *ngIf="isFormSubmitted && signUpForm.controls.email.errors?.required">
+            Please enter email.
+        </div>
+            
+        <div class="rp-error" *ngIf="signUpForm.controls.email.errors && signUpForm.get('email').touched">
+        Please enter a valid email.
+        </div>
+    </div>
+
+    
+
+    <div class="loginCredentials">
+        <input type="password" formControlName="password" placeholder="password">
+        <div  class="rp-error" *ngIf="isFormSubmitted && signUpForm.controls.password.errors?.required">
+            Please enter valid password.
+        </div>
+    </div>
+    <!-- <span id="errMsg">Credentials are required</span> -->
+    <div *ngIf="successMsg"> <span class="msg">Success!!!</span> <span (click)="login()" class="loginBtn">login</span></div>
+    <div class="rp-error" *ngIf="errorFlag">{{errorMsg}}</div>
+    <div class="submitBtn">
+        <button [disabled]="successMsg" [ngClass]="{'notAllowed': successMsg}" (click)="onSubmit(signUpForm)" class="login btn" type="button" value="LOGIN" id="btn">SIGN UP</button>
+        <!-- <span class="signUp">or <a (click)="signUp()">signUp</a></span> -->
+    </div>
+    </div>
+</form>
+</div>

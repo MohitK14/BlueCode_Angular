@@ -1,0 +1,15 @@
+.button{
+    float: right;
+    /* margin-right: 20%; */
+    cursor: pointer;
+}
+
+.button button{
+    cursor: pointer;
+}
+
+.title{
+    background: #b9b3b3;
+    padding: 10px;
+    text-align: center;
+}

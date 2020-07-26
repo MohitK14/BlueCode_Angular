@@ -1,0 +1,34 @@
+
+
+<div class="loginBox">
+    <form name="loginForm" [formGroup]="loginForm" >
+    <div class="credBoxes">
+
+    <div class="loginCredentials">
+        <input type="text" placeholder="username@xyz.com" formControlName="email">
+    
+            <div  class="rp-error" *ngIf="isFormSubmitted && loginForm.controls.email.errors?.required">
+                Please enter email.
+            </div>
+                
+            <div class="rp-error" *ngIf="loginForm.controls.email.errors && loginForm.get('email').touched">
+            Please enter a valid email.
+            </div>
+    </div>
+
+    <div class="loginCredentials">
+        <input type="password" formControlName="password" placeholder="password">
+        <div  class="rp-error" *ngIf="isFormSubmitted && loginForm.controls.password.errors?.required">
+            Please enter valid password.
+        </div>
+    </div>
+    <span class="forgotPwd"> <a (click)="forgotPwd()">Reset password</a></span>
+    <!-- <span id="errMsg">Credentials are required</span> -->
+    <div class="rp-error" *ngIf="errorFlag">{{errorMsg}}</div>
+    <div class="submitBtn">
+        <button (click)="onSubmit(loginForm)" class="login btn" type="button" value="LOGIN" id="btn">LOGIN</button>
+        <span class="signUp">or <a (click)="signUp()">signUp</a></span>
+    </div>
+    </div>
+    </form>
+</div>
