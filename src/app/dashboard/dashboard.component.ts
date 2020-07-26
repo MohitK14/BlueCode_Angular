@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
    this.userData = this.serviceData.getData();
-    console.log(this.userData);
+   // console.log(this.userData);
     if(this.userData){
     localStorage.setItem("jwtToken", this.userData.token);
     localStorage.setItem("email", this.userData.email);
