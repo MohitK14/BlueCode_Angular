@@ -24,6 +24,9 @@
         <div  class="rp-error" *ngIf="isFormSubmitted && forgotForm.controls.password.errors?.required">
             Please enter valid password.
         </div>
+        <div class="rp-error" *ngIf="forgotForm.controls.password.errors && forgotForm.get('password').touched">
+            Please enter a 6 digit password.
+        </div>
     </div>
     
     <!-- <span id="errMsg">Credentials are required</span> -->

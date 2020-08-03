@@ -23,6 +23,9 @@
         <div  class="rp-error" *ngIf="isFormSubmitted && signUpForm.controls.password.errors?.required">
             Please enter valid password.
         </div>
+        <div class="rp-error" *ngIf="signUpForm.controls.password.errors && signUpForm.get('password').touched">
+            Please enter a 6 digit password.
+        </div>
     </div>
     <!-- <span id="errMsg">Credentials are required</span> -->
     <div *ngIf="successMsg"> <span class="msg">Success!!!</span> <span (click)="login()" class="loginBtn">login</span></div>

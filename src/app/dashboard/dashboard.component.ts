@@ -14,12 +14,17 @@ export class DashboardComponent implements OnInit {
   jwtToken: string;
 
   ngOnInit(): void {
+
    this.userData = this.serviceData.getData();
-   // console.log(this.userData);
     if(this.userData){
     localStorage.setItem("jwtToken", this.userData.token);
     localStorage.setItem("email", this.userData.email);
     localStorage.setItem("id", this.userData.id);
+    }
+
+    let email = localStorage.getItem('email');
+    if(email){
+      this.userData = email;
     }
   }
 

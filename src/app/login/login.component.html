@@ -21,6 +21,9 @@
         <div  class="rp-error" *ngIf="isFormSubmitted && loginForm.controls.password.errors?.required">
             Please enter valid password.
         </div>
+        <div class="rp-error" *ngIf="loginForm.controls.password.errors && loginForm.get('password').touched">
+            Please enter a 6 digit password.
+        </div>
     </div>
     <span class="forgotPwd"> <a (click)="forgotPwd()">Reset password</a></span>
     <!-- <span id="errMsg">Credentials are required</span> -->
